@@ -4,8 +4,7 @@ import com.infopulse.service.DataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,8 +25,8 @@ public class IndexController {
         return mav;
     }
     @RequestMapping(value="/clients", method = RequestMethod.POST)
-    public ModelAndView createClient(HttpServletRequest request){
-       String name= request.getParameter("name");
+    public ModelAndView createClient(@RequestParam("name") String name){
+      // String name= request.getParameter("name");
        this.dataService.createClient(name);
        ModelAndView mav = new ModelAndView();
        mav.setViewName("ok");
