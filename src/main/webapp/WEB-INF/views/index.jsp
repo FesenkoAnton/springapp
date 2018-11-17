@@ -4,6 +4,11 @@
     <title>Title</title>
 </head>
 <body>
- ${welcome}
+<form action="${action}" method="POST">
+    <input type="text" name="name" value=""/>
+    <br>
+    <input type="submit" name="ok" value="send"/>
+
+</form>
 </body>
 </html>
